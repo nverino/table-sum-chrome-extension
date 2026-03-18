@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Table Sum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">Σ</span>
+        <div>
+          <div class="logo-title">Table Sum</div>
+          <div class="logo-sub">numeric column analyzer</div>
+        </div>
+      </div>
+      <button class="btn-refresh" id="btnRefresh" title="Refresh tables">↺</button>
+    </header>
+
+    <main class="main" id="main">
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Scanning tables…</p>
+      </div>
+
+      <div class="empty" id="empty" style="display:none">
+        <div class="empty-icon">⊘</div>
+        <p>No tables found on this page.</p>
+      </div>
+
+      <div id="content" style="display:none">
+        <!-- Table selector -->
+        <div class="section" style="margin-bottom: 1rem;">
+          <label class="section-label">Select table</label>
+          <div class="table-tabs" id="tableTabs"></div>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="stats-bar" id="statsBar"></div>
+
+        <!-- Columns -->
+        <div class="section">
+          <label class="section-label">Columns</label>
+          <div class="columns-grid" id="columnsGrid"></div>
+        </div>
+
+        <!-- Grand total -->
+        <div class="grand-total" id="grandTotal" style="display:none">
+          <span class="grand-label">Grand Total (selected)</span>
+          <span class="grand-value" id="grandValue">—</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
