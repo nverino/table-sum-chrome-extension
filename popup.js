@@ -181,6 +181,7 @@ function extractTablesFromPage() {
   const parseNumericCellValue = (value) => {
     const normalized = value
       .replace(/US\$/gi, '')
+      .replace(/AR\$/gi, '')
       .replace(/[$€£¥%\s]/g, '');
     const lastComma = normalized.lastIndexOf(',');
     const lastDot = normalized.lastIndexOf('.');

@@ -29,6 +29,7 @@ function extractTables() {
         .map((v) => {
           const normalized = v
             .replace(/US\$/gi, '')
+            .replace(/AR\$/gi, '')
             .replace(/[^0-9.,-]/g, '');
           const lastComma = normalized.lastIndexOf(',');
           const lastDot = normalized.lastIndexOf('.');
