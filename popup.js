@@ -36,7 +36,7 @@ async function scanTables() {
     } else {
       showContent();
       renderTableTabs();
-      renderTable(0);
+      renderTable(activeTableIndex);
     }
   } catch (e) {
     showError(e.message);
@@ -70,7 +70,7 @@ function renderTableTabs() {
   tabs.innerHTML = '';
   allTables.forEach((t, i) => {
     const btn = document.createElement('button');
-    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+    btn.className = 'tab-btn' + (i === activeTableIndex ? ' active' : '');
     btn.textContent = t.name;
     btn.title = t.name;
     btn.addEventListener('click', () => {
@@ -78,7 +78,6 @@ function renderTableTabs() {
         .querySelectorAll('.tab-btn')
         .forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-      selectedColumns.clear();
       activeTableIndex = i;
       renderTable(i);
     });
